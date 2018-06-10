@@ -348,6 +348,30 @@ declare module "chess.js" {
          */
         public history(options: {
             /** Pass true if you want this function to output verbose objects instead of strings */
+            verbose?: false;
+        }): string[];
+
+        /**
+         * Returns a list containing the moves of the current game.
+         * Options is an optional parameter which may contain a 'verbose' flag.
+         * See .moves() for a description of the verbose move fields.
+         * @param options an optional parameter which may contain a 'verbose' flag.
+         * @returns a list of all moves of the current game. They will be strings if not passed the verbose flag.
+         */
+        public history(options: {
+            /** Pass true if you want this function to output verbose objects instead of strings */
+            verbose: true;
+        }): Move[];
+
+        /**
+         * Returns a list containing the moves of the current game.
+         * Options is an optional parameter which may contain a 'verbose' flag.
+         * See .moves() for a description of the verbose move fields.
+         * @param options an optional parameter which may contain a 'verbose' flag.
+         * @returns a list of all moves of the current game. They will be strings if not passed the verbose flag.
+         */
+        public history(options: {
+            /** Pass true if you want this function to output verbose objects instead of strings */
             verbose?: boolean;
         }): string[] | Move[];
     }
