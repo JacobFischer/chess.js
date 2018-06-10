@@ -33,6 +33,17 @@ declare module "chess.js" {
         /** Flags indicating what occurred, combined into one string */
         flags: string;
 
+        /**
+         * The type of the piece that moved
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
+        piece: "p" | "n" | "b" | "r" | "q" | "k";
+
         /** The Standard Algebraic Notation (SAN) representation of the move */
         san: string;
 
