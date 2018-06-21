@@ -152,6 +152,44 @@ declare module "chess.js" {
          * @returns The list of all valid moves, either in SAN format, or as
          * verbose objects.
          */
+        public moves(options: {
+            /** Set to true to return verbose move objects instead of strings */
+            verbose: true;
+            /**
+             * The string to test if it is a valid move, if it is not then an
+             * empty array is returned
+             */
+            square?: string;
+        }): Move[];
+
+        /**
+         * Returns a list of legal moves from the current position.
+         * The function takes an optional parameter which controls the
+         * single-square move generation and verbosity.
+         * @param options an optional parameter which controls the single-square
+         * move generation and verbosity.
+         * @returns The list of all valid moves, either in SAN format, or as
+         * verbose objects.
+         */
+        public moves(options?: {
+            /** Set to true to return verbose move objects instead of strings */
+            verbose?: false;
+            /**
+             * The string to test if it is a valid move, if it is not then an
+             * empty array is returned
+             */
+            square?: string;
+        }): string[];
+
+        /**
+         * Returns a list of legal moves from the current position.
+         * The function takes an optional parameter which controls the
+         * single-square move generation and verbosity.
+         * @param options an optional parameter which controls the single-square
+         * move generation and verbosity.
+         * @returns The list of all valid moves, either in SAN format, or as
+         * verbose objects.
+         */
         public moves(options?: {
             /** Set to true to return verbose move objects instead of strings */
             verbose?: boolean;
@@ -300,7 +338,7 @@ declare module "chess.js" {
          * @returns The move as a full object is returned if the move was valid, and the chess board's state changes.
          *          If the move was invalid, ull is returned and the state does not update.
          */
-        public move(move: string | ShortMove, options: {
+        public move(move: string | ShortMove, options?: {
             /** An optional sloppy flag can be used to parse a variety of non-standard move notations */
             sloppy?: boolean;
         }): null | Move;
